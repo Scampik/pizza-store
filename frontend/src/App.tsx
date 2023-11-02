@@ -7,7 +7,7 @@ import {
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
-import AppRoutes from './AppRoutes';
+import AppRoutes from './pages/AppRoutes';
 import Categories from './components/Categories';
 import PageFooter from './components/PageFooter';
 import LanguageSelector from './components/LngSelector';

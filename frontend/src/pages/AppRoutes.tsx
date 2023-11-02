@@ -4,10 +4,10 @@ import {
   Route,
 } from 'react-router-dom';
 
-import MainPage from './pages/MainPage';
-import PageNotFound from './pages/PageNotFound';
+import MainPage from './MainPage';
+import PageNotFound from './PageNotFound';
 
-import routes from './routes';
+import routes from '../routes';
 
 const AppRoutes = () => (
   <>

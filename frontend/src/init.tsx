@@ -1,14 +1,17 @@
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import React from 'react';
+import store from './slices/index';
 
 import App from './App';
-import { initI18next } from './initI18next.js';
+import { initI18next } from './initI18next';
 
 const vdom = async () => {
   await initI18next();
 
   return (
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   );
 };
 

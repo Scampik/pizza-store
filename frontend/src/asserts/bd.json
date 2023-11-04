@@ -1,0 +1,83 @@
+[
+    {
+      "price": 20,
+      "type": "type 4",
+      "size": 89,
+      "name": "Трюфельная",
+      "description": "Мортаделла, трюфельный соус, шампиньоны, красный лук, моцарелла, фирменный соус альфредо, чеснок",
+      "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/6390157043034f8585c64cc279edbef1_584x584.webp",
+      "id": "4"
+    },
+    {
+      "price": 78,
+      "type": "type 5",
+      "size": 90,
+      "name": "Пицца Миксик",
+      "description": "Пицца четвертинками с ветчиной, цыпленком, томатами, брынзой, моцареллой, фирменным соусом альфредо",
+      "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/32a726c9e28c49b3b491115e440b5a23_584x584.webp",
+      "id": "5"
+    },
+    {
+      "price": 43,
+      "type": "type 6",
+      "size": 86,
+      "name": "Пепперони фреш",
+      "description": "Пикантная пепперони, увеличенная порция моцареллы, томаты, фирменный томатный соус",
+      "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/27c9bbd0af3a4d1d84a086d9c2f1656d_584x584.webp",
+      "id": "6"
+    },
+    {
+      "price": 13,
+      "type": "type 7",
+      "size": 31,
+      "name": "Сырная",
+      "description": "Моцарелла, сыры чеддер и пармезан, фирменный соус альфредо",
+      "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/d9c609f1422247f2b87b6293eb461ff0_584x584.webp",
+      "id": "7"
+    },
+    {
+      "price": 80,
+      "type": "type 8",
+      "size": 47,
+      "name": "Двойной цыпленок",
+      "description": "Цыпленок, моцарелла, фирменный соус альфредо",
+      "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/ddadb2bd7f2d40459acddbe2f51a2389_584x584.webp",
+      "id": "8"
+    },
+    {
+      "price": 71,
+      "type": "type 9",
+      "size": 67,
+      "name": "Ветчина и сыр",
+      "description": "Ветчина, моцарелла, фирменный соус альфредо",
+      "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/cea570842b754c52b786c231c65bd2e2_584x584.webp",
+      "id": "9"
+    },
+    {
+      "price": 74,
+      "type": "type 10",
+      "size": 78,
+      "name": "Пицца Жюльен",
+      "description": "Цыпленок, шампиньоны, сливочный соус с грибами, красный лук, чеснок, моцарелла, смесь сыров чеддер и пармезан, фирменный соус альфредо",
+      "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/f8bcc0d18f5a4817a720a159f0f8c37c_584x584.webp",
+      "id": "10"
+    },
+    {
+      "price": 84,
+      "type": "type 11",
+      "size": 95,
+      "name": "Карбонара",
+      "description": "Бекон, сыры чеддер и пармезан, моцарелла, томаты, красный лук, чеснок, фирменный соус альфредо, итальянские травы",
+      "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/2cac8238ae9e42cd95dd00c17146e1fd_584x584.webp",
+      "id": "11"
+    },
+    {
+      "price": 92,
+      "type": "type 12",
+      "size": 82,
+      "name": "Песто",
+      "description": "Цыпленок, соус песто, кубики брынзы, томаты, моцарелла, фирменный соус альфредо",
+      "image": "https://dodopizza-a.akamaihd.net/static/Img/Products/6046174c06e440299c4e7117a8ecfea4_584x584.webp",
+      "id": "12"
+    }
+  ]

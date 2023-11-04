@@ -20,7 +20,7 @@ export const getPizza = createAsyncThunk<Pizza[]>(
   'pizza/getPizza',
   async () => {
       const { data } = await axios.get<Pizza[]>('https://6543346901b5e279de2001a0.mockapi.io/api/v1/data');
-      console.log('data', data);
+      // console.log('data', data);
       return data;
   },
 );
@@ -46,5 +46,5 @@ const pizzaSlice = createSlice({
 });
 
 export default pizzaSlice.reducer;
-export const selectors = pizzaAdapter.getSelectors((state: any):any => state);
+export const selectors = pizzaAdapter.getSelectors((state: any):any => state.pizza);
 export const { actions } = pizzaSlice;

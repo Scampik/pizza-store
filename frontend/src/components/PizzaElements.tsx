@@ -17,7 +17,7 @@ const Pizza: React.FC = () => {
     <Row xs={1} md={2} xl={4} className="g-4 m-2">
       {data.map((el: any) => (
         <Col key={el.id}>
-          <Card className="h-100" border="light">
+          <Card className="h-100 btn" border="light">
             <Card.Img variant="top" src={el.image} />
             <Card.Body className="d-flex flex-column">
               <Card.Title>{el.name}</Card.Title>

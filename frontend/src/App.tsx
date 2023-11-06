@@ -34,10 +34,10 @@ const App: React.FC = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                Прямой эфир
-                Работа в додо
-                О нас
-                Контакты
+                <Nav.Link href="#home">Прямой эфир</Nav.Link>
+                <Nav.Link href="#home">Работа в додо</Nav.Link>
+                <Nav.Link href="#home">О нас</Nav.Link>
+                <Nav.Link href="#home">Контакты</Nav.Link>
               </Nav>
               <Nav className="flex-row flex-wrap ms-sm-auto align-items-center gap-2">
                 <LanguageSelector />

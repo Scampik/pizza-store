@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { unwrapResult } from '@reduxjs/toolkit';
+import { Link } from 'react-router-dom';
 
+import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import Pizza from '../components/PizzaElements';
-// import developLogo from '../asserts/stories.jpg';
+import developLogo from '../asserts/stories.jpg';
 import { getPizza } from '../slices/pizzaSlice';
 
 const MainPage: React.FC = () => {
-    // const storiesPage = [developLogo,developLogo,developLogo,developLogo,developLogo];
-    const assortment = ['Пиццы','Комбо','Закуски','Коктейли','Кофе','Напитки','Десерты','Акци'];
-    const dispatch = useDispatch();
+  const assortment = ['Пиццы','Комбо','Закуски','Коктейли','Кофе','Напитки','Десерты','Акции'];
+  const dispatch = useDispatch();
 
   useEffect(() => {
     console.log('dispatch');
@@ -22,40 +23,69 @@ const MainPage: React.FC = () => {
           console.log('user login problem');
         } if (error.status === 0) {
           console.log('networkProblem');
-          // return dispatch(setStatus('failed'));
         }
-        // return dispatch(setStatus('failed'));
       });
   }, [dispatch]);
 
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      const navbarElement = document.querySelector('.navbar') as HTMLDivElement;
+      if (navbarElement) {
+        if (scrollTop >= navbarElement.offsetHeight) {
+          setShowNavbar(true);
+        } else {
+          setShowNavbar(false);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="container">
-      <div className="assortment">
-        {assortment.map((el: string) => (
-          <Button key={el} variant="light">{el}</Button>
-        ))}
-      </div>
-      {/* <div className="stories m-2">
-        {storiesPage.map((story: any) => (
-          <img key={story} src={story} className="mx-2" style={{ width: '18%', height: '20%'}} alt={'sdd'} />
-        ))}
-      </div> */}
-      {/* <div className="often">
-        <h1>Часто заказывают</h1>
-        <div className="d-flex justify-content-start" >
-          {storiesPage.map((story: any) => (
-            <div key={1} className="d-flex justify-content-start m-3 shadow rounded">
-              <div className="1">
-                <img className="mx-2" src={story} style={{ width: '100px', height: '80px'}} alt={'sdd'} />
-              </div>
-              <div className="m-2">
-                <p className="mb-0">name</p>
-                <p>price</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div> */}
+    <div>
+      {showNavbar ? (
+        <div style={{height: "53px"}}>
+          {''}
+        </div>) 
+        :
+        null
+      }
+      <Navbar
+        fixed={showNavbar ? 'top' : undefined}
+        collapseOnSelect
+        expand="lg"
+        className="bg-body-tertiary bg-opacity-75"
+      >
+        <Container>
+          <Navbar.Brand as={Link} to={'routes.mainPage()'} className="fs-4 fw-semibold mr-auto">
+            <img
+              src={developLogo}
+              height={20}
+              width={20}
+              className="rounded-circle"
+              alt={'ss'}
+            />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav>
+                {assortment.map((el: string) => (
+                  <Nav.Link key={el} onClick={() => console.log('lol')}>{el}</Nav.Link>
+                ))}
+            </Nav>
+            <Nav className="flex-row flex-wrap ms-sm-auto align-items-center gap-2">
+              <Nav.Link className="">Корзина</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <Pizza />
     </div>
   );

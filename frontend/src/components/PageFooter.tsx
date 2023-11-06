@@ -1,17 +1,21 @@
 import {
   Link,
 } from 'react-router-dom';
-import { QuestionCircle } from 'react-bootstrap-icons';
+import { useDispatch } from 'react-redux';
 
-const PageFooter = () => {
+import { QuestionCircle } from 'react-bootstrap-icons';
+import { actions as modalActions } from '../slices/modalSlice';
+
+const PageFooter: React.FC = () => {
+  const dispatch = useDispatch();
 
   const handleInDevelopment = () => {
-    console.log('in develop')
+    dispatch(modalActions.openModal({ type: 'inDevelopment' }));
   };
 
   return (
-    <footer className="page-footer font-small deep-dark pt-3 bg-dark-subtle">
-      <div className="container text-center text-md-left">
+    <footer className="page-footer bg-body-secondary">
+      <div className="container text-center">
         <div className="row text-center text-md-left mt-3 pb-3">
           <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
             <p>

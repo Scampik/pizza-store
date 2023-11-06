@@ -2,5 +2,11 @@
 export default {
   translation: {
     siteName: 'Dodo',
+    modals: {
+      inDevelopment: {
+        message: 'This feature is not available yet',
+        okButton: 'Ok',
+      },
+    },
   }
 };

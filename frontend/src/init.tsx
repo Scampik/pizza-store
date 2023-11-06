@@ -3,6 +3,7 @@ import React from 'react';
 import store from './slices/index';
 
 import App from './App';
+import ModalWindow from './modals';
 import { initI18next } from './initI18next';
 
 const vdom = async () => {
@@ -11,6 +12,7 @@ const vdom = async () => {
   return (
     <Provider store={store}>
       <App />
+      <ModalWindow />
     </Provider>
   );
 };

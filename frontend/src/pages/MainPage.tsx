@@ -4,9 +4,9 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom';
 
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import Pizza from '../components/PizzaElements';
-import developLogo from '../asserts/stories.jpg';
+import developLogo from '../asserts/img/logo.png';
 import { getPizza } from '../slices/pizzaSlice';
 
 const MainPage: React.FC = () => {
@@ -64,17 +64,17 @@ const MainPage: React.FC = () => {
         className="bg-body-tertiary bg-opacity-75"
       >
         <Container>
-          <Navbar.Brand as={Link} to={'routes.mainPage()'} className="fs-4 fw-semibold mr-auto">
+          <Navbar.Brand as={Link} to={'routes.mainPage()'} className="fs-4 fw-semibold ms-2">
             <img
               src={developLogo}
-              height={20}
-              width={20}
+              height={40}
+              width={40}
               className="rounded-circle"
               alt={'ss'}
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Collapse id="responsive-navbar-nav" className="">
             <Nav>
                 {assortment.map((el: string) => (
                   <Nav.Link key={el} onClick={() => console.log('lol')}>{el}</Nav.Link>

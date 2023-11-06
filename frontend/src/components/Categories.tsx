@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Categories = () => {
+const Categories: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState('');
   const types = ['Мясные', 'Вегетарианская', 'Острые', 'Все']
   const onClickCategory = (type: string) => {

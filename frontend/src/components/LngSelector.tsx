@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 import { useLanguage } from '../hooks';
 
-const LanguageSelector = () => {
+const LanguageSelector: React.FC = () => {
   const { t, i18n } = useTranslation();
 
   const { language, availableLanguages, setLanguage } = useLanguage();

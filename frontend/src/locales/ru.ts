@@ -2,5 +2,11 @@
 export default {
   translation: {
     siteName: 'Dodo',
+    modals: {
+      inDevelopment: {
+        message: 'Эта функция пока недоступна',
+        okButton: 'Понятно',
+      },
+    },
   },
 };

@@ -4,7 +4,7 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom';
 
 import { Navbar, Container, Nav } from 'react-bootstrap';
-// import { Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import Pizza from '../components/PizzaElements';
 import developLogo from '../asserts/img/logo.png';
 import { getPizza } from '../slices/pizzaSlice';
@@ -81,7 +81,7 @@ const MainPage: React.FC = () => {
                 ))}
             </Nav>
             <Nav className="flex-row flex-wrap ms-sm-auto align-items-center gap-2">
-              <Nav.Link className="">Корзина</Nav.Link>
+              <Button className="rounded rounded-pill px-4 py-2 fw-medium" variant="warning">Корзина</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>

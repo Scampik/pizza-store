@@ -35,11 +35,11 @@ const App: React.FC = () => {
           <Container>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link onClick={handleInDevelopment}>Прямой эфир</Nav.Link>
-                <Nav.Link onClick={handleInDevelopment}>Работа в додо</Nav.Link>
-                <Nav.Link onClick={handleInDevelopment}>О нас</Nav.Link>
-                <Nav.Link onClick={handleInDevelopment}>Контакты</Nav.Link>
+              <Nav className="">
+                <Nav.Link className="me-2" onClick={handleInDevelopment}>Прямой эфир</Nav.Link>
+                <Nav.Link className="mx-2" onClick={handleInDevelopment}>Работа в додо</Nav.Link>
+                <Nav.Link className="mx-2" onClick={handleInDevelopment}>О нас</Nav.Link>
+                <Nav.Link className="mx-2" onClick={handleInDevelopment}>Контакты</Nav.Link>
               </Nav>
               <Nav className="flex-row flex-wrap ms-sm-auto align-items-center gap-2">
                 <LanguageSelector />

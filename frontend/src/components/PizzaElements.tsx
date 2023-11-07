@@ -13,7 +13,7 @@ const Pizza: React.FC = () => {
 
   return (
     <Container className="pizzaMenu px-0">
-      <h1 className="ms-5">Пиццы</h1>
+      <h1 className="ms-4">Пиццы</h1>
       <Row xs={1} md={2} xl={4} className="g-4 mt-2">
         {data.map((el: any) => (
           <Col key={el.id}>

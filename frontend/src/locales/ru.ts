@@ -8,5 +8,6 @@ export default {
         okButton: 'Понятно',
       },
     },
+    language: 'Русский',
   },
 };

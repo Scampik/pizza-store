@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom';
 
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
-import Pizza from '../components/PizzaElements';
+import PizzaBlock from '../components/PizzaElements';
 import developLogo from '../asserts/img/logo.png';
 import { getPizza } from '../slices/pizzaSlice';
+import { cartSelect } from '../slices/cartSlice';
+
+import routes from '../routes';
 
 const MainPage: React.FC = () => {
   const assortment = ['Пиццы','Комбо','Закуски','Коктейли','Кофе','Напитки','Десерты','Акции'];
   const dispatch = useDispatch();
-
+  const data = useSelector(cartSelect);
+  console.log(data.totalPrice);
   useEffect(() => {
     console.log('dispatch');
     dispatch(getPizza() as any)
@@ -48,6 +52,13 @@ const MainPage: React.FC = () => {
     };
   }, []);
 
+  const handleClick = (sectionId: any) => {
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div>
       {showNavbar ? (
@@ -64,7 +75,7 @@ const MainPage: React.FC = () => {
         className="bg-body-tertiary bg-opacity-75"
       >
         <Container>
-          <Navbar.Brand as={Link} to={'routes.mainPage()'} className="fs-4 fw-semibold ms-2">
+          <Navbar.Brand as={Link} to={routes.mainPage()} className="fs-4 fw-semibold ms-2">
             <img
               src={developLogo}
               height={40}
@@ -77,16 +88,16 @@ const MainPage: React.FC = () => {
           <Navbar.Collapse id="responsive-navbar-nav" className="">
             <Nav>
                 {assortment.map((el: string) => (
-                  <Nav.Link key={el} onClick={() => console.log('lol')}>{el}</Nav.Link>
+                  <Nav.Link key={el} onClick={() => handleClick(el)}>{el}</Nav.Link>
                 ))}
             </Nav>
             <Nav className="flex-row flex-wrap ms-sm-auto align-items-center gap-2">
-              <Button className="rounded rounded-pill px-4 py-2 fw-medium" variant="warning">Корзина</Button>
+              <Button className="rounded rounded-pill px-4 py-2 fw-medium" variant="warning">Корзина {`${data.totalPrice} ₽`}</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <Pizza />
+      <PizzaBlock />
     </div>
   );
 };

@@ -8,13 +8,15 @@ import axios from 'axios';
 
 // import routes from '../routes';
 
-  export type Pizza = {
-    id: string;
-    name: string;
-    price: number;
-    type: string;
-    size: number;
-  };
+export type Pizza = {
+  id: string;
+  name: string;
+  price: number;
+  type: string;
+  size: number;
+  description: string;
+  image: string;
+};
 
 export const getPizza = createAsyncThunk<Pizza[]>(
   'pizza/getPizza',

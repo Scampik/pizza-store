@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
 import React from 'react';
-import store from './slices/index';
+import { store } from './slices/index';
 
 import App from './App';
 import ModalWindow from './modals';

@@ -8,5 +8,6 @@ export default {
         okButton: 'Ok',
       },
     },
+    language: 'English',
   }
 };

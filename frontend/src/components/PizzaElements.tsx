@@ -1,19 +1,35 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Button, Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-import { selectors } from '../slices/pizzaSlice';
+import { addItem } from '../slices/cartSlice';
+import { selectors as pizzaSelectors } from '../slices/pizzaSlice';
 
-const Pizza: React.FC = () => {
-  const data = useSelector(selectors.selectAll)
+  export type Pizza = {
+    id: string;
+    name: string;
+    price: number;
+    type: string;
+    size: number;
+    description: string;
+    image: string;
+  };
+
+const PizzaBlock: React.FC = () => {
+  const dispatch = useDispatch();
+  const data = useSelector(pizzaSelectors.selectAll);
+
+  const handleBuy = (el: any) => {
+    dispatch(addItem(el));
+  };
 
   return (
     <Container className="pizzaMenu px-0">
-      <h1 className="ms-4">Пиццы</h1>
+      <h1 className="ms-4" id="Пиццы">Пиццы</h1>
       <Row xs={1} md={2} xl={4} className="g-4 mt-2">
         {data.map((el: any) => (
           <Col key={el.id}>
@@ -28,7 +44,11 @@ const Pizza: React.FC = () => {
                   <p className="m-2 fs-5">
                     {`от ${el.price} ₽`}
                   </p>
-                  <Button variant="secondary" className="w-50 rounded rounded-pill">
+                  <Button
+                    variant="secondary"
+                    className="w-50 rounded rounded-pill"
+                    onClick={() => handleBuy(el)}
+                  >
                     Выбрать
                   </Button>
                 </div>
@@ -41,4 +61,4 @@ const Pizza: React.FC = () => {
   );
 };
 
-export default Pizza;
+export default PizzaBlock;

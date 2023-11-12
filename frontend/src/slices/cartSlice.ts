@@ -4,16 +4,7 @@ import {
   PayloadAction,
 } from '@reduxjs/toolkit';
 import { RootState } from './index';
-
-  export type Pizza = {
-    id: string;
-    name: string;
-    price: number;
-    type: string;
-    size: number;
-    description: string;
-    image: string;
-  };
+import { Pizza } from './pizzaSlice';
 
   export type CartItem = {
     id: string;
@@ -41,7 +32,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action: PayloadAction<Pizza>) {
-      console.log(action.payload);
+      // console.log(action.payload);
       const findItem = state.items.find((obj) => obj.id === action.payload.id);
       if (findItem) {
         findItem.count++;

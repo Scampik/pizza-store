@@ -6,25 +6,17 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
+import { actions as modalActions } from '../slices/modalSlice';
 import { addItem } from '../slices/cartSlice';
-import { selectors as pizzaSelectors } from '../slices/pizzaSlice';
-
-  export type Pizza = {
-    id: string;
-    name: string;
-    price: number;
-    type: string;
-    size: number;
-    description: string;
-    image: string;
-  };
+import { selectors as pizzaSelectors, Pizza } from '../slices/pizzaSlice';
 
 const PizzaBlock: React.FC = () => {
   const dispatch = useDispatch();
   const data = useSelector(pizzaSelectors.selectAll);
 
-  const handleBuy = (el: any) => {
-    dispatch(addItem(el));
+  const handleBuy = (el: Pizza) => {
+    console.log(el);
+    dispatch(modalActions.openModal({ type: 'addCart', item: el }));
   };
 
   return (
@@ -41,12 +33,12 @@ const PizzaBlock: React.FC = () => {
                   {el.description}
                 </Card.Text>
                 <div className="mt-auto d-flex justify-content-between align-items-end flex-wrap">
-                  <p className="m-2 fs-5">
+                  <p className="m-2 fs-5 fw-semibold">
                     {`от ${el.price} ₽`}
                   </p>
                   <Button
                     variant="secondary"
-                    className="w-50 rounded rounded-pill"
+                    className="w-50  rounded rounded-pill"
                     onClick={() => handleBuy(el)}
                   >
                     Выбрать

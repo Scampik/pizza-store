@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { Link } from 'react-router-dom';
 
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import PizzaBlock from '../components/PizzaElements';
 import developLogo from '../asserts/img/logo.png';
 import { getPizza } from '../slices/pizzaSlice';
 import { cartSelect } from '../slices/cartSlice';
+import { actions as modalActions } from '../slices/modalSlice';
 
 import routes from '../routes';
 
@@ -16,7 +16,8 @@ const MainPage: React.FC = () => {
   const assortment = ['Пиццы','Комбо','Закуски','Коктейли','Кофе','Напитки','Десерты','Акции'];
   const dispatch = useDispatch();
   const data = useSelector(cartSelect);
-  console.log(data.totalPrice);
+  const [showNavbar, setShowNavbar] = useState(false);
+
   useEffect(() => {
     console.log('dispatch');
     dispatch(getPizza() as any)
@@ -30,8 +31,6 @@ const MainPage: React.FC = () => {
         }
       });
   }, [dispatch]);
-
-  const [showNavbar, setShowNavbar] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,6 +51,11 @@ const MainPage: React.FC = () => {
     };
   }, []);
 
+  const handleBuy = () => {
+    // console.log(el);
+    dispatch(modalActions.openModal({ type: 'cart' }));
+  };
+
   const handleClick = (sectionId: any) => {
     const sectionElement = document.getElementById(sectionId);
     if (sectionElement) {
@@ -62,7 +66,7 @@ const MainPage: React.FC = () => {
   return (
     <div>
       {showNavbar ? (
-        <div style={{height: "53px"}}>
+        <div style={{height: "68px"}}>
           {''}
         </div>) 
         :
@@ -92,7 +96,13 @@ const MainPage: React.FC = () => {
                 ))}
             </Nav>
             <Nav className="flex-row flex-wrap ms-sm-auto align-items-center gap-2">
-              <Button className="rounded rounded-pill px-4 py-2 fw-medium" variant="warning">Корзина {`${data.totalPrice} ₽`}</Button>
+              <Button
+                className="rounded rounded-pill px-4 py-2 fw-medium"
+                variant="warning"
+                onClick={handleBuy}
+              >
+                Корзина {data.totalPrice > 0 ? `${data.totalPrice} ₽`: null}
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>

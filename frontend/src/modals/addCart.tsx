@@ -51,20 +51,22 @@ const AddCart: React.FC = ({ handleClose, isOpen, item } : any) => {
             <Card.Text className="w-100">
               {item.description}
             </Card.Text>
-              <ul className="rounded d-flex justify-content-center p-2 bg-body-secondary text-center">
+            <div className="pizza__selector">
+              <ul className="">
                 <li 
-                  className={`dropdown-item rounded ${sizePizza === 0? 'bg-light':''}`}
+                  className={` ${sizePizza === 0? 'active':''}`}
                   onClick={() => setSizePizza(0)}
                 >25 см</li>
                 <li
-                  className={`dropdown-item rounded ${sizePizza === 1? 'bg-light':''}`}
+                  className={` ${sizePizza === 1? 'active':''}`}
                   onClick={() => setSizePizza(1)}
                 >30 см</li>
                 <li
-                  className={`dropdown-item rounded ${sizePizza === 2? 'bg-light':''}`}
+                  className={` ${sizePizza === 2? 'active':''}`}
                   onClick={() => setSizePizza(2)}
                 >35 см</li>
               </ul>
+            </div>
             <Button
               className="rounded rounded-pill w-100 mt-auto h-25"
               variant="success"

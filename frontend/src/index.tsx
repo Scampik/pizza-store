@@ -1,6 +1,5 @@
-import './styles.scss';
+import './scss/styles.scss';
 import 'bootstrap';
-// import './index.css';
 
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';

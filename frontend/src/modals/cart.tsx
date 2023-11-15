@@ -12,12 +12,10 @@ const Cart: React.FC = ({ handleClose, isOpen } : any) => {
   const data = useSelector(cartSelect);
 
   const handleMinus = (item: CartItem) => {
-    console.log(item);
     dispatch(decrCount(item));
   };
 
   const handlePlus = (item: CartItem) => {
-    console.log(item);
     dispatch(incCount(item));
   };
 
@@ -55,7 +53,7 @@ const Cart: React.FC = ({ handleClose, isOpen } : any) => {
             <div className="col-md-7 m-3 ms-0 align-self-center ps-0">
               <h5 className="">{el.name}</h5>
               <section className="">
-                <div className="param">{el.type}</div>
+                <div className="param text-muted">{el.size}</div>
               </section>
             </div>
           </div>

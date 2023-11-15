@@ -13,7 +13,7 @@ export type Pizza = {
   name: string;
   price: number;
   type: string;
-  size: number;
+  size: string;
   description: string;
   image: string;
 };

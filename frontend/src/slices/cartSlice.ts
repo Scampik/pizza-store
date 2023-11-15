@@ -11,7 +11,7 @@ import { Pizza } from './pizzaSlice';
     name: string;
     price: number;
     type: string;
-    size: number;
+    size: string;
     description: string;
     image: string;
     count: number;

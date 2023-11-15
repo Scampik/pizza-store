@@ -15,7 +15,7 @@ const PizzaBlock: React.FC = () => {
   const data = useSelector(pizzaSelectors.selectAll);
 
   const handleBuy = (el: Pizza) => {
-    console.log(el);
+    // console.log(el);
     dispatch(modalActions.openModal({ type: 'addCart', item: el }));
   };
 
